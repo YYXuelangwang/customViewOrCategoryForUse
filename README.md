@@ -57,3 +57,58 @@ store my own view for use usually
 @end
 ```
 ![image](https://github.com/YYXuelangwang/customViewOrCategoryForUse/blob/master/chooseCalanderView.gif)
+
+## LTRootViewController+ltNav
+
+- How to use 
+- 1, you need to drug the ltNav document to your project;
+- 2, look,  you just need to call addNavView in the -init implement;
+- 3, here is the code
+
+```objective-c
+
+#import "LTRootViewController+LTNavView.h"
+
+@implementation TestViewController
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self addNavView];
+    }
+    return self;
+}
+```
+- 4, you need to know that i recovery the method in the viewDidDisappeared, it's not good
+
+```objective-c
+/* because this class Inherited from UIViewController，and this method will cover the code from LTRootViewController;
+    or you can creat a new method to compile this code;
+    因为是继承自UIViewController，所以这里可以调用[super viewDidDisappear:animated]; 还有，这样写了后，会覆盖原类的相关方法
+    如果可以，还是建议新建一个方法来实现下面的方法，从而实现复原method的指针指向；
+*/
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    //除掉其他控制器的调用
+    if (!self.lt_NavView) {
+        return;
+    }
+    
+    Method method = class_getInstanceMethod(self.class, @selector(viewDidLoad));
+    
+    //还原原始的imp
+    NSDictionary *dic = [_lt_impDic objectForKey:NSStringFromClass(self.class)];
+    NSValue *impValue = [dic objectForKey:LTSwizzleOrignViewDidLoadKey];
+    if (!impValue) {
+        return;
+    }
+    
+    IMP impPoint = [impValue pointerValue];
+    method_setImplementation(method, impPoint);
+    
+    //移除暂时不用的object
+    [_lt_impDic removeObjectForKey:NSStringFromClass(self.class)];
+}
+```
+![image](https://github.com/YYXuelangwang/customViewOrCategoryForUse/blob/master/chooseCalanderView.gif)
