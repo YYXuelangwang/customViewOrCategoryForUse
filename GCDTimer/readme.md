@@ -1,5 +1,5 @@
 
-#### this is a manager class for handle lots of blocks with dispatch_source_t
+>#### this is a manager class for handle lots of blocks with dispatch_source_t
 
 Characteristics of the manager:
 
@@ -9,7 +9,7 @@ Characteristics of the manager:
 
 note: once you want to destroy the manager or don't need to use it , you need to call the method `- (void)invilidate`;
 
-#### how to use
+>#### how to use
 
 demo:
 1. add once time block;
