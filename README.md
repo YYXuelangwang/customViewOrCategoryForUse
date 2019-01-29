@@ -112,3 +112,9 @@ store my own view for use usually
 }
 ```
 ![image](https://github.com/YYXuelangwang/customViewOrCategoryForUse/blob/master/LTNav/ltNav.gif)
+
+## PassWdView
+
+imitate pass word view
+
+![image](https://github.com/YYXuelangwang/customViewOrCategoryForUse/blob/master/PassWdView/unlockView1.png)
