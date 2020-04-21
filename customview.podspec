@@ -11,14 +11,13 @@ Pod::Spec.new do |spec|
   spec.name         = "customview"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of customview."
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "test"
   spec.homepage     = "https://github.com/YYXuelangwang/customViewOrCategoryForUse.git"
   spec.license      = "MIT"
   spec.author             = { "yinyong" => "yy_xuelangwang@sina.com" }
   spec.platform     = :ios
   spec.source       = { :git => "https://github.com/YYXuelangwang/customViewOrCategoryForUse.git", :tag => "#{spec.version}" }
-  spec.source_files  =  "XRDTitleBtnScrollView.{h,m}"
+  spec.source_files  = "UIView+xrdCustomView.{h,m}", "XRDTitleBtnScrollView.{h,m}"
   spec.exclude_files = "Classes/Exclude"
 
 
