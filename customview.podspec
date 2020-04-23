@@ -16,7 +16,8 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author             = { "yinyong" => "yy_xuelangwang@sina.com" }
   spec.platform     = :ios
-  spec.source       = { :git => "https://github.com/YYXuelangwang/customViewOrCategoryForUse.git", :tag => "#{spec.version}" }
+  spec.ios.deployment_target = "8.0"
+  spec.source       = { :git => "git@github.com:YYXuelangwang/customViewOrCategoryForUse.git", :tag => "#{spec.version}" }
   spec.source_files  = "UIView+xrdCustomView.{h,m}", "XRDTitleBtnScrollView.{h,m}"
   spec.exclude_files = "Classes/Exclude"
 
